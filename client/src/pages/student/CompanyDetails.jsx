@@ -16,14 +16,11 @@ function CompanyDetails() {
   const handleApply = async () => {
     setApplying(true);
     setError("");
-
     try {
       await API.post("/applications", { companyId: company._id });
       setApplied(true);
     } catch (err) {
-      setError(
-        err.response?.data?.message || "Failed to apply. Try again."
-      );
+      setError(err.response?.data?.message || "Failed to apply. Try again.");
     } finally {
       setApplying(false);
     }
@@ -34,7 +31,7 @@ function CompanyDetails() {
       <div className="flex flex-col md:flex-row min-h-screen">
         <Sidebar />
         <main className="flex-1 bg-slate-100 p-4 md:p-8">
-          <div className="bg-white rounded-xl shadow-lg p-4 md:p-8 text-center">
+          <div className="bg-white rounded-xl shadow-lg p-6 md:p-8 text-center">
             <p className="text-gray-500">
               No company selected. Please go back and choose a company.
             </p>
@@ -51,44 +48,44 @@ function CompanyDetails() {
   }
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen">
       <Sidebar />
 
       <main className="flex-1 bg-slate-100 p-4 md:p-8">
-        <div className="bg-white rounded-xl shadow-lg p-4 md:p-8">
-          <h1 className="text-4xl font-bold text-blue-600">
+        <div className="bg-white rounded-xl shadow-lg p-5 md:p-8">
+          <h1 className="text-2xl md:text-4xl font-bold text-blue-600">
             {company.name}
           </h1>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
+          <div className="grid sm:grid-cols-2 gap-5 md:gap-6 mt-6 md:mt-8">
             <div>
-              <p className="text-gray-500">Role</p>
+              <p className="text-gray-500 text-sm">Role</p>
               <h2 className="font-semibold">{company.role}</h2>
             </div>
 
             <div>
-              <p className="text-gray-500">Package</p>
+              <p className="text-gray-500 text-sm">Package</p>
               <h2 className="font-semibold text-green-600">
                 {company.salary ? company.salary : "Not specified"}
               </h2>
             </div>
 
             <div>
-              <p className="text-gray-500">Location</p>
+              <p className="text-gray-500 text-sm">Location</p>
               <h2 className="font-semibold">
                 {company.location ? company.location : "Not specified"}
               </h2>
             </div>
 
             <div>
-              <p className="text-gray-500">Eligibility</p>
+              <p className="text-gray-500 text-sm">Eligibility</p>
               <h2 className="font-semibold">
                 {company.eligibility ? company.eligibility : "Not specified"}
               </h2>
             </div>
 
             <div>
-              <p className="text-gray-500">Last Date to Apply</p>
+              <p className="text-gray-500 text-sm">Last Date to Apply</p>
               <h2 className="font-semibold">
                 {company.lastDateToApply
                   ? new Date(company.lastDateToApply).toLocaleDateString(
@@ -100,7 +97,7 @@ function CompanyDetails() {
             </div>
 
             <div>
-              <p className="text-gray-500">Website</p>
+              <p className="text-gray-500 text-sm">Website</p>
               <h2 className="font-semibold">
                 {company.website ? (
                   <a
@@ -118,12 +115,10 @@ function CompanyDetails() {
             </div>
           </div>
 
-          <div className="mt-10">
-            <h2 className="text-2xl font-bold mb-3">Job Description</h2>
-            <p className="text-gray-600">
-              {company.description
-                ? company.description
-                : "No description provided."}
+          <div className="mt-8 md:mt-10">
+            <h2 className="text-xl md:text-2xl font-bold mb-3">Job Description</h2>
+            <p className="text-gray-600 text-sm md:text-base">
+              {company.description ? company.description : "No description provided."}
             </p>
           </div>
 
@@ -136,13 +131,9 @@ function CompanyDetails() {
           <button
             onClick={handleApply}
             disabled={applying || applied}
-            className="mt-10 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 disabled:opacity-50"
+            className="mt-8 md:mt-10 w-full sm:w-auto bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 disabled:opacity-50"
           >
-            {applied
-              ? "✓ Applied"
-              : applying
-              ? "Applying..."
-              : "Apply Now"}
+            {applied ? "✓ Applied" : applying ? "Applying..." : "Apply Now"}
           </button>
         </div>
       </main>
