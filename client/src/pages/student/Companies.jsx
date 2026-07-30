@@ -33,10 +33,10 @@ function Companies() {
   );
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen">
       <Sidebar />
 
-      <main className="flex-1 bg-slate-100 p-8">
+      <main className="flex-1 bg-slate-100 p-4 md:p-8">
         <h1 className="text-4xl font-bold mb-8">
           Available Companies
         </h1>

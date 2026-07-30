@@ -12,9 +12,7 @@ function Companies() {
       const res = await API.get("/companies");
       setCompanies(res.data);
     } catch (err) {
-      setError(
-        err.response?.data?.message || "Failed to load companies."
-      );
+      setError(err.response?.data?.message || "Failed to load companies.");
     } finally {
       setLoading(false);
     }
@@ -25,9 +23,7 @@ function Companies() {
   }, []);
 
   const handleDelete = async (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this company?"
-    );
+    const confirmDelete = window.confirm("Are you sure you want to delete this company?");
     if (!confirmDelete) return;
 
     try {
@@ -39,20 +35,18 @@ function Companies() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 p-8">
-      <div className="flex justify-between items-center mb-8">
+    <div className="p-4 md:p-8">
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6 md:mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-blue-600">
-            Manage Companies
-          </h1>
-          <p className="text-gray-500 mt-1">
+          <h1 className="text-2xl md:text-3xl font-bold text-blue-600">Manage Companies</h1>
+          <p className="text-gray-500 mt-1 text-sm md:text-base">
             View, edit, and remove companies listed for placement.
           </p>
         </div>
 
         <Link
           to="/admin/add-company"
-          className="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700"
+          className="bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 text-center"
         >
           + Add Company
         </Link>
@@ -61,41 +55,22 @@ function Companies() {
       {loading && <p className="text-gray-500">Loading companies...</p>}
 
       {error && (
-        <p className="text-red-600 bg-red-50 border border-red-200 rounded-lg p-3">
-          {error}
-        </p>
+        <p className="text-red-600 bg-red-50 border border-red-200 rounded-lg p-3">{error}</p>
       )}
 
       {!loading && !error && companies.length === 0 && (
-        <p className="text-gray-500">
-          No companies added yet. Click "Add Company" to get started.
-        </p>
+        <p className="text-gray-500">No companies added yet. Click "Add Company" to get started.</p>
       )}
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {companies.map((company) => (
-          <div
-            key={company._id}
-            className="bg-white p-6 rounded-lg shadow hover:shadow-md transition"
-          >
-            <h2 className="text-xl font-bold text-gray-800">
-              {company.name}
-            </h2>
+          <div key={company._id} className="bg-white p-5 md:p-6 rounded-lg shadow hover:shadow-md transition">
+            <h2 className="text-lg md:text-xl font-bold text-gray-800">{company.name}</h2>
             <p className="text-blue-600 font-medium">{company.role}</p>
 
-            {company.location && (
-              <p className="text-gray-500 text-sm mt-2">
-                📍 {company.location}
-              </p>
-            )}
-            {company.salary && (
-              <p className="text-gray-500 text-sm">💰 {company.salary}</p>
-            )}
-            {company.eligibility && (
-              <p className="text-gray-500 text-sm">
-                🎓 {company.eligibility}
-              </p>
-            )}
+            {company.location && <p className="text-gray-500 text-sm mt-2">📍 {company.location}</p>}
+            {company.salary && <p className="text-gray-500 text-sm">💰 {company.salary}</p>}
+            {company.eligibility && <p className="text-gray-500 text-sm">🎓 {company.eligibility}</p>}
 
             <div className="flex gap-3 mt-5">
               <Link

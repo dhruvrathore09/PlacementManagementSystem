@@ -33,10 +33,10 @@ function Applications() {
   }, []);
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen">
       <Sidebar />
 
-      <main className="flex-1 bg-slate-100 p-8">
+      <main className="flex-1 bg-slate-100 p-4 md:p-8">
         <h1 className="text-4xl font-bold mb-2">My Applications</h1>
         <p className="text-gray-500 mb-8">
           Track the status of companies you've applied to.
@@ -48,7 +48,7 @@ function Applications() {
           </p>
         )}
 
-        <div className="bg-white rounded-xl shadow overflow-hidden">
+        <div className="bg-white rounded-xl shadow overflow-x-auto">
           {loading ? (
             <p className="px-6 py-6 text-gray-500">
               Loading applications...

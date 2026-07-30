@@ -31,10 +31,10 @@ function CompanyDetails() {
 
   if (!company) {
     return (
-      <div className="flex min-h-screen">
+      <div className="flex flex-col md:flex-row min-h-screen">
         <Sidebar />
-        <main className="flex-1 bg-slate-100 p-8">
-          <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+        <main className="flex-1 bg-slate-100 p-4 md:p-8">
+          <div className="bg-white rounded-xl shadow-lg p-4 md:p-8 text-center">
             <p className="text-gray-500">
               No company selected. Please go back and choose a company.
             </p>
@@ -54,8 +54,8 @@ function CompanyDetails() {
     <div className="flex min-h-screen">
       <Sidebar />
 
-      <main className="flex-1 bg-slate-100 p-8">
-        <div className="bg-white rounded-xl shadow-lg p-8">
+      <main className="flex-1 bg-slate-100 p-4 md:p-8">
+        <div className="bg-white rounded-xl shadow-lg p-4 md:p-8">
           <h1 className="text-4xl font-bold text-blue-600">
             {company.name}
           </h1>

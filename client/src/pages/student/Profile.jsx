@@ -56,7 +56,7 @@ function Profile() {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen">
+      <div className="flex flex-col md:flex-row min-h-screen">
         <Sidebar />
         <main className="flex-1 bg-slate-100 p-8 flex items-center justify-center">
           <p className="text-gray-500">Loading profile...</p>
@@ -66,10 +66,10 @@ function Profile() {
   }
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen">
       <Sidebar />
 
-      <main className="flex-1 bg-slate-100 p-8">
+      <main className="flex-1 bg-slate-100 p-4 md:p-8">
         <h1 className="text-4xl font-bold mb-8">My Profile</h1>
 
         {error && (
@@ -78,7 +78,7 @@ function Profile() {
           </p>
         )}
 
-        <div className="bg-white rounded-xl shadow-lg p-8 max-w-3xl">
+        <div className="bg-white rounded-xl shadow-lg p-4 md:p-8 max-w-3xl">
 
           <div className="flex items-center gap-6">
             <div className="w-24 h-24 rounded-full bg-blue-600 text-white flex items-center justify-center text-4xl font-bold">
