@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Hero() {
   return (
-    <section className="bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 min-h-[90vh] flex items-center relative overflow-hidden">
+    <section className="bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 min-h-[90vh] flex items-center relative overflow-hidden pt-8 md:pt-0">
       {/* Decorative blobs */}
       <div className="absolute top-20 -left-20 w-72 h-72 bg-blue-200 rounded-full opacity-30 blur-3xl"></div>
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-indigo-200 rounded-full opacity-30 blur-3xl"></div>
